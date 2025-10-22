@@ -1,6 +1,4 @@
-# 👋 ¡Bienvenido al Proyecto de Análisis de Puntajes de Pruebas de Acceso!
-
- **Todo esto es un ejemplo, modificar despues según corresponda**
+# 👋 ¡Bienvenido al Periodo 2004-2011!
 
 ## 🏗 Estructura del Repositorio
 

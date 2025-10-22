@@ -6,13 +6,4 @@ __pycache__/
 .vscode/
 
 # MacOS
-.DS_Store
-
-# Archivos de Datos (Grandes/Temporales)
-data_temp/
-*.csv
-*.xlsx
-*.pkl
-
-#Archivos MacOS
 *.DS_Store
