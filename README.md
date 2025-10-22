@@ -2,41 +2,6 @@
 
  **Todo esto es un ejemplo, modificar despues según corresponda**
 
-# 🧑‍💻 IMPORTANTE PARA EL MANEJO DE LA BRANCHES (manejarse con precaución)
-
-Este documento detalla los **tres pasos** que debemos seguir para trabajar en el rango de años asignado sin interferir con el trabajo del resto.
-
-El trabajo debe realizarse *siempre* en una rama aislada de tu período.
-
----
-
-## PASO B: Preparación e Inicio del Análisis
-
-### 1. Sincronizar el Repositorio (Obtener la rama `develop`)
-
-La rama `develop` es la base de todo el trabajo. Debes asegurarte de que tu copia local de Git sepa que esta rama existe en el servidor.
-
-| Comando | Propósito |
-| :--- | :--- |
-| `git fetch` | **Descarga** la información más reciente del repositorio central, incluyendo la existencia de la nueva rama `develop`, sin modificar tus archivos. |
-| `git checkout develop` | **Crea localmente** la rama `develop` (si aún no la tienes) y te ubica en ella. Ahora tienes la base de código compartida. |
-| `git branch -a` | **Informa** en qué rama del proyecto nos encontramos parados. | 
-| `git checkout nombre_rama` | **Cambia** la rama actual donde te encuentras es como un cd `nombre_carpeta`. |
-
-![alt text](image.png)
-La rama develop está creada, utilicé `git branch develop` y luego `git push -u origin develop` para que git la rastree solo, si sincronizan deberían poder verla.
-
-### 2. Crear tu Rama de Período
-
-Una vez en `develop`, debes crear tu rama de trabajo personal. **Utiliza la nomenclatura `periodo/<tu-rango-de-años>`**.
-
-| Comando | Propósito |
-| :--- | :--- |
-| `git checkout -b <tu-periodo-asignado> develop` | **Crea una nueva rama** con tu nombre (ej. `periodo/2009-2013`) a partir de `develop` y te **mueve automáticamente a ella**. |
-
-### Recomiendo que pregunten a IA sobre el trabajo en branches, para que entendamos como funcionan los commits, pull, merge, etc. Dentro de un proyecto ramificado.
----
-
 ## 🏗 Estructura del Repositorio
 
 
@@ -59,34 +24,44 @@ La base de datos se presenta en formato tabular (como un DataFrame de `pandas`),
 
 | Columna | Significado | Tipo de Dato | Rol Analítico |
 | :--- | :--- | :--- | :--- |
-| `ID_aux` | Identificador único de registro (anonimizado). | Alfanumérico | *Identificador* |
-| `GRUPO_DEPENDENCIA` | Tipo de dependencia del establecimiento de egreso. | Categórico | **Socioeducativo** |
-| `RAMA` | Modalidad de egreso (Humanista-Científica vs. Técnico-Profesional). | Categórico | **Contextual** |
-| `SITUACION_EGRESO` | Condición del postulante al rendir la prueba. | Categórico | **Contextual** |
-| `CODIGO_REGION` | Código de la región del establecimiento de egreso. | Categórico | **Geográfico** |
-| `LENG_ACTUAL` | Puntaje en la prueba de Comprensión Lectora/Lenguaje. | Numérico | **Puntaje Objetivo** |
-| `MATE_ACTUAL` | Puntaje en la prueba de Matemáticas. | Numérico | **Puntaje Objetivo** |
+| `ID_aux` | Identificador único de registro (anonimizado). | Alfanumérico | Identificador |
+| `GRUPO_DEPENDENCIA` | Tipo de dependencia del establecimiento de egreso. | Categórico | Socioeducativo |
+| `RAMA` | Modalidad de egreso (Humanista-Científica vs. Técnico-Profesional). | Categórico |  Contextual |
+| `SITUACION_EGRESO` | Condición del postulante al rendir la prueba. | Categórico | Contextual |
+| `CODIGO_REGION` | Código de la región del establecimiento de egreso. | Categórico | Geográfico |
+| `LENG_ACTUAL` | Puntaje en la prueba de Comprensión Lectora/Lenguaje. | Numérico | Puntaje Objetivo |
+| `MATE_ACTUAL` | Puntaje en la prueba de Matemáticas. | Numérico | Puntaje Objetivo |
+| `RBD` | Rol base de datos . | Numérico | Identificador |
 
-> **IMPORTANTE:** Los puntajes (`*_ACTUAL`) están en una escala estándar (generalmente entre 300 y 850). Para el detalle completo de los códigos (ej. el significado de `GRUPO_DEPENDENCIA = 1`), consulte el **[Diccionario de Datos Completo]** ubicado en la carpeta `docs/`.
+# 📊 Estabilidad de Puntajes: El Fenómeno del Anclaje a 500
+
+Este proyecto analiza puntajes que han sido sometidos a un proceso de **estandarización** con el objetivo de hacerlos comparables a lo largo del tiempo (2004-2025). El fenómeno más notable en la tendencia central es la estabilidad de los promedios de las pruebas cerca de los **500 puntos**.
 
 ---
 
-## ⚙️ Primeros Pasos y Contribución
+## 1. ¿Por Qué los Promedios son Tan Estables?
 
-Para empezar a trabajar con el *dataset*:
+La estabilidad no es una coincidencia de rendimiento nacional, sino un **efecto artificial y buscado** del diseño estadístico del sistema de acceso (PSU/PAES).
 
-1.  **Clonar el Repositorio:**
-    ```bash
-    git clone [URL_del_repositorio]
-    ```
-2.  **Configurar el Entorno:** Instalar las dependencias necesarias (usualmente `pandas`, `numpy`, `matplotlib`, `seaborn`, etc.).
-3.  **Exploración Inicial:** Diríjase a la carpeta `notebooks/` y comience con el *notebook* de exploración de datos (ej. `01_EDA_Inicial.ipynb`).
+* **Punto de Anclaje ($\mu$):** El puntaje promedio de cada prueba (`LENG_ACTUAL`, `MATE_ACTUAL`, etc.) se **ajusta intencionalmente** en el proceso de escalamiento para que la media se sitúe siempre alrededor de los **500 puntos**.
+* **Diseño Estadístico:** Se asume que el rendimiento promedio de la población que rinde la prueba es constante. El puntaje bruto (respuestas correctas) necesario para alcanzar 500 puntos **cambia cada año** en función de la dificultad de la prueba y el rendimiento real de la cohorte.
+
+---
+
+## 2. Propósito del Escalamiento (Comparabilidad)
+
+El **DEMRE** utiliza el puntaje transformado (estandarizado) en lugar del puntaje bruto (respuestas correctas) por una razón fundamental: **garantizar la comparabilidad histórica**.
+
+* **Valor Constante:** Al anclar la media en 500, el sistema asegura que un 650 en 2004 tenga el mismo **valor estadístico** (es decir, la misma posición relativa dentro de la distribución de puntajes de ese año) que un 650 en 2011.
+
+**Conclusión:** Los datos son **transformados** por el motivo de ofrecer un standar a lo largo de los años. En futuras entregas del proyecto se investigará como puede influir esto en el análisis de los datos (que datos/medidas estadísticas son relevantes para establecer diferencias entre desempeño de distintos procesos de admisión).
+
+> **IMPORTANTE:** El Rol Base de Datos (`RBD`) es el código que identifica a los establecimientos que forman parte del Sistema de Aseguramiento de la Calidad, siendo clave para la fiscalización y evaluación educativa. Para más información revise https://www.bcn.cl/leychile/navegar?idNorma=1093444.
+
+---
 
 ### ⚠️ Consideraciones Éticas y de Uso
 
 * Los datos están **anonimizados**. El uso de esta información está restringido al análisis estadístico y la investigación educativa.
-* Trate las columnas de códigos (ej. `CODIGO_REGION`) como **variables categóricas** y no como variables continuas.
 
 ---
-
-### **¡Tu contribución es clave para transformar datos en conocimiento educativo!**
