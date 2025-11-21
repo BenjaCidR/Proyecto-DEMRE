@@ -13,7 +13,7 @@ El propósito de este proyecto se basa en dar respuesta a las siguientes pregunt
 2. ¿Cómo se vieron afectados los puntajes durante la pandemia y el estallido social, considerando factores como la dificultad del acceso a las clases presenciales?
 3. ¿En qué comunas de Santiago se concentran los mejores puntajes (>= 850) y cómo relacionamos esto a los tipos de colegios en cada comuna?
 4. ¿Han cambiado los promedios de puntajes en el cambio de PSU, PDT y PAES, y si estos determinan un cambio en la forma de medir el rendimiento estudiantil o más bien un cambio real en el desempeño de estos? A considerar el cambio de escala de PSU a PAES.
-5.  ¿Qué factores nos dan una mayor capacidad de predecir los resultados de la PAES?
+5. ¿Qué factores académicos y socioeconómicos (NEM, Ranking, Tipo de Colegio) predicen la probabilidad de que un estudiante obtenga un Puntaje de Excelencia (Top 5%) a lo largo del periodo 2004-2025?
 6. ¿Es posible identificar perfiles de colegios que compartan características comunes en su desempeño académico, de forma que algunos establecimientos enseñen resultados similares entre sí y se diferencien de otros grupos de colegios?
 7. ¿Se puede establecer un perfil de estudiante que permita explicar su desempeño en la prueba de admisión, considerando variables como el promedio de notas de enseñanza media, la situación de egreso y otras condiciones académicas o socioeconómicas?
 
