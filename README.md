@@ -1,9 +1,23 @@
-# 👋 ¡Bienvenido al Proyecto de Análisis de Puntajes de Pruebas de Acceso!
+# 📚 ¡Bienvenido al Proyecto de Análisis de Puntajes de Pruebas de Acceso! 📚
 
 ## Autores
-- Benjamín Cid Roblero
-- Martín Pérez Reveco
-- Felipe Serrano Salinas
+| Nombre | Rol |
+| :--- | :--- |
+| Benjamín Cid Roblero | Responder preguntas 1 y 6, análisis preliminar años 2004-2011 |
+| Martín Pérez Reveco |  Responder preguntas 3, 4 y 5, análisis preliminar años 2019-2025 |
+| Felipe Serrano Salinas | Responder preguntas 2 y 7, análisis preliminar años 2012 - 2018 |
+
+## 🏁 Objetivos principales
+El propósito de este proyecto se basa en dar respuesta a las siguientes preguntas:
+1. ¿Existen diferencias significativas en torno a los puntajes según el tipo de establecimiento (Municipal, Subvencionado, Particular), se han mantenido a lo largo del tiempo?
+2. ¿Cómo se vieron afectados los puntajes durante la pandemia y el estallido social, considerando factores como la dificultad del acceso a las clases presenciales?
+3. ¿En qué comunas de Santiago se concentran los mejores puntajes (>= 850) y cómo relacionamos esto a los tipos de colegios en cada comuna?
+4. ¿Han cambiado los promedios de puntajes en el cambio de PSU, PDT y PAES, y si estos determinan un cambio en la forma de medir el rendimiento estudiantil o más bien un cambio real en el desempeño de estos? A considerar el cambio de escala de PSU a PAES.
+5.  ¿Qué factores nos dan una mayor capacidad de predecir los resultados de la PAES?
+6. ¿Es posible identificar perfiles de colegios que compartan características comunes en su desempeño académico, de forma que algunos establecimientos enseñen resultados similares entre sí y se diferencien de otros grupos de colegios?
+7. ¿Se puede establecer un perfil de estudiante que permita explicar su desempeño en la prueba de admisión, considerando variables como el promedio de notas de enseñanza media, la situación de egreso y otras condiciones académicas o socioeconómicas?
+
+
 
 ## 💾 Fuente de Datos del Proyecto (Data Source)
 
@@ -23,7 +37,6 @@ La base de datos se obtuvo a partir del **Portal de Bases de Datos del DEMRE**. 
 | :--- | :--- |
 | `data/` | Contiene archivos .parquet con el trabajo realizado y finalizado por cada uno de los integrantes de este proyecto en su primera fase (hasta la fecha 21 Octubre 2025) |
 | `notebooks/` | Desarrollo del trabajo para la exploración de datos (`EDA`), análisis estadístico y visualizaciones. |
-
 | `PROJECT_README.md` | Este archivo. |
 | `.gitignore` | Archivos no relevantes para el proyecto. |
 
@@ -53,8 +66,7 @@ La base de datos se presenta en formato tabular (como un DataFrame de `pandas`),
 | `%_de_logro_obligatorias`| Puntaje ponderado entre las pruebas Lectora/Lenguaje y Matemáticas/M1 | Numérico | Estadístico |
 
 # 📊 Estabilidad de Puntajes: El Fenómeno del Anclaje a 500
-
-Este proyecto analiza puntajes que han sido sometidos a un proceso de **estandarización** con el objetivo de hacerlos comparables a lo largo del tiempo (2004-2025). El fenómeno más notable en la tendencia central es la estabilidad de los promedios de las pruebas cerca de los **500 puntos**.
+Es fundamental recalcar (y contextualizar) que este proyecto analiza puntajes que han sido sometidos a un proceso de **estandarización** con el objetivo de hacerlos comparables a lo largo del tiempo (2004-2025). El fenómeno más notable en la tendencia central es la estabilidad de los promedios de las pruebas cerca de los **500 puntos**.
 
 ---
 
@@ -80,6 +92,20 @@ El **DEMRE** utiliza el puntaje transformado (estandarizado) en lugar del puntaj
 
 ---
 
+### 📚 Librerías implementadas 📚:
+
+| Librería | Descripción |
+|---------|-------------|
+| **NumPy** | Manejo eficiente de arreglos multidimensionales y operaciones matemáticas de alto rendimiento. |
+| **Pandas** | Manipulación, limpieza y análisis estructurado de datos mediante DataFrames. |
+| **Scikit‑Learn (sklearn)** | Implementación de modelos estadísticos y de machine learning para clasificación, regresión y clustering. |
+| **Seaborn** | Biblioteca para visualizaciones estadísticas de alto nivel y gráficos estilizados. |
+| **Matplotlib** | Herramienta base para generar gráficos personalizados y visualizaciones detalladas. |
+
+> **Nota:** Estas librerías deben ser utilizadas para el análisis y procesamiento de los datos del proyecto.
+
+
+---
 ### ⚠️ Consideraciones Éticas y de Uso
 
 * Los datos están **anonimizados**. El uso de esta información está restringido al análisis estadístico y la investigación educativa.
