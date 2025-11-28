@@ -7,6 +7,8 @@
 | Martín Pérez Reveco |  Responder preguntas 3, 4 y 5, análisis preliminar años 2019-2025 |
 | Felipe Serrano Salinas | Responder preguntas 2 y 7, análisis preliminar años 2012 - 2018 |
 
+[🔗 Página web: Análisis DEMRE — CS Datos](https://sites.google.com/view/analisis-demre-csdatos/retroalimentaci%C3%B3n)
+
 ## 🏁 Objetivos principales
 El propósito de este proyecto se basa en dar respuesta a las siguientes preguntas:
 1. ¿Existen diferencias significativas en torno a los puntajes según el tipo de establecimiento (Municipal, Subvencionado, Particular), se han mantenido a lo largo del tiempo?
